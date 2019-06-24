@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+    <S:Body>
+        <ns2:getUsersResponse xmlns:ns2="http://ws.coverity.com/v9">
+            <return>
+                <users>
+                    <roleAssignments>
+                        <roleAssignmentType>user</roleAssignmentType>
+                        <roleId>
+                            <name>projectOwner</name>
+                        </roleId>
+                        <type>project</type>
+                        <username>admin</username>
+                    </roleAssignments>
+                    <roleAssignments>
+                        <roleAssignmentType>user</roleAssignmentType>
+                        <roleId>
+                            <name>streamOwner</name>
+                        </roleId>
+                        <type>stream</type>
+                        <username>admin</username>
+                    </roleAssignments>
+                    <dateCreated>2017-12-20T11:03:42.536+08:00</dateCreated>
+                    <dateModified>2019-06-22T22:32:12.689+08:00</dateModified>
+                    <disabled>false</disabled>
+                    <familyName>User</familyName>
+                    <givenName>Admin</givenName>
+                    <groups>用户</groups>
+                    <groups>管理员</groups>
+                    <local>true</local>
+                    <locale>zh_CN</locale>
+                    <locked>false</locked>
+                    <passwordChanged>2019-01-15T17:13:15.221+08:00</passwordChanged>
+                    <superUser>true</superUser>
+                    <userModified>system</userModified>
+                    <username>admin</username>
+                </users>
+                <totalNumberOfRecords>29</totalNumberOfRecords>
+            </return>
+        </ns2:getUsersResponse>
+    </S:Body>
+</S:Envelope>

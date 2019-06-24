@@ -14,7 +14,10 @@ Coverity is a brand of software development products from Synopsys, consisting p
 
 ```go
 
-import "github.com/denglitong/gocoverity"
+import (
+    "github.com/denglitong/gocoverity/client"
+    "github.com/denglitong/gocoverity/configuration"
+)
 
 const (
     ConfigurationServiceURL = "http://my.cov_connect.domain:8080/ws/v9/configurationservice"
@@ -56,6 +59,11 @@ for _, user := range response.Return.Users {
 ### defect service
 
 ```go
+
+import (
+    "github.com/denglitong/gocoverity/client"
+    "github.com/denglitong/gocoverity/defect"
+)
 
 defectClient := gocoverity.NewClient(DefectServiceURL, CovUsername, CovPassword, 
     WSUId, SoapEnvMustUnderstand, configuration.Namespace)

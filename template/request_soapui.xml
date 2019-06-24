@@ -1,0 +1,21 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+    xmlns:v9="http://ws.coverity.com/v9">
+    <soapenv:Header>
+        <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" soapenv:mustUnderstand="1">
+            <wsse:UsernameToken xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="XWSSGID-1349973313023-787497544">
+                <wsse:Username>denglitong</wsse:Username>
+                <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">123456</wsse:Password>
+            </wsse:UsernameToken>
+        </wsse:Security>
+    </soapenv:Header>
+
+    <soapenv:Body>
+        <v9:getUsers>
+            <pageSpec>
+                <pageSize>10</pageSize>
+                <sortAscending>1</sortAscending>
+                <startIndex>0</startIndex>
+            </pageSpec>
+        </v9:getUsers>
+    </soapenv:Body>
+</soapenv:Envelope>

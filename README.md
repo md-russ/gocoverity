@@ -24,12 +24,12 @@ const (
     DefectServiceURL        = "http://my.cov_connect.domain:8080/ws/v9/defectservice"
     CovUsername             = "denglitong"
     CovPassword             = "123456"
-    WSUId                   = "XWSSGID-1349973313023-787497544" // explore request xml from soapui you can found wsu:Id="XWSSGID-1349973313023-787497544"
-    SoapEnvMustUnderstand   = "1" // explore request xml from soapui you can found soapenv:mustUnderstand="1"
+    // https://community.synopsys.com/s/article/Using-SoapUI-to-explore-Coverity-web-services
+    //WSUId                 = "XWSSGID-1349973313023-787497545"
+    //SoapEnvMustUnderstand = "1"
 )
 
-configClient := gocoverity.NewClient(ConfigurationServiceURL, CovUsername, CovPassword, 
-    WSUId, SoapEnvMustUnderstand, configuration.Namespace)
+configClient := gocoverity.NewClient(ConfigurationServiceURL, CovUsername, CovPassword, "", "", configuration.Namespace)
 configurationService := configuration.NewConfigurationService(configClient)
 
 pageSize, sortAscending, startIndex := 10, true, 0
@@ -65,8 +65,7 @@ import (
     "github.com/denglitong/gocoverity/defect"
 )
 
-defectClient := gocoverity.NewClient(DefectServiceURL, CovUsername, CovPassword, 
-    WSUId, SoapEnvMustUnderstand, configuration.Namespace)
+defectClient := gocoverity.NewClient(DefectServiceURL, CovUsername, CovPassword, "", "", configuration.Namespace)
 defectService := defect.NewDefectService(defectClient)
 
 projectName := "tunas-java-demo-dlt_test-v9.git.n.xiaomi.com"

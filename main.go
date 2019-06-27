@@ -8,16 +8,17 @@ import (
 )
 
 const (
-	ConfigurationServiceURL = "http://my.cov_connect.domain:8080/ws/v9/configurationservice" // configurationservice wsdl url
-	DefectServiceURL        = "http://my.cov_connect.domain:8080/ws/v9/defectservice"        // defectservice wsdl url
-	CovUsername             = "denglitong"                                                   // coverity server account username
-	CovPassword             = "123456"                                                       // coverity server account password
-	WSUId                   = "XWSSGID-1349973313023-787497544"                              // explore request xml from soapui you can found wsu:Id="XWSSGID-1349973313023-787497544"
-	SoapEnvMustUnderstand   = "1"                                                            // explore request xml from soapui you can found soapenv:mustUnderstand="1"
+	ConfigurationServiceURL = "https://coverity.d.xiaomi.net/ws/v9/configurationservice" // configurationservice wsdl url
+	DefectServiceURL        = "https://coverity.d.xiaomi.net/ws/v9/defectservice"        // defectservice wsdl url
+	CovUsername             = "banchuanyu@xiaomi.com"                                    // coverity server account username
+	CovPassword             = "banchuanyu"                                               // coverity server account password
+	// https://community.synopsys.com/s/article/Using-SoapUI-to-explore-Coverity-web-services
+	//WSUId                 = "XWSSGID-1349973313023-787497545"
+	//SoapEnvMustUnderstand = "1"
 )
 
 func main() {
-	configClient := client.NewClient(ConfigurationServiceURL, CovUsername, CovPassword, WSUId, SoapEnvMustUnderstand, configuration.Namespace)
+	configClient := client.NewClient(ConfigurationServiceURL, CovUsername, CovPassword, "", "", configuration.Namespace)
 	configurationService := configuration.NewConfigurationService(configClient)
 
 	pageSize, sortAscending, startIndex := 100, true, 0
@@ -44,8 +45,7 @@ func main() {
 
 	fmt.Println()
 
-	defectClient := client.NewClient(DefectServiceURL, CovUsername, CovPassword,
-		WSUId, SoapEnvMustUnderstand, configuration.Namespace)
+	defectClient := client.NewClient(DefectServiceURL, CovUsername, CovPassword, "", "", configuration.Namespace)
 	defectService := defect.NewDefectService(defectClient)
 
 	projectName := "tunas-java-demo-dlt_test-v9.git.n.xiaomi.com"
